@@ -1,0 +1,221 @@
+:root {
+  --grey: #222;
+  --dark-grey: #111;
+  --white: #eee;
+  --green: cornflowerblue;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: var(--grey);
+}
+
+ul,
+li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+input {
+  border: none;
+  border-radius: 25px;
+  height: 50px;
+  padding: 0 15px;
+  margin: 0 5px;
+  font-size: 20px;
+  color: var(--grey);
+  outline: none;
+  line-height: 25px;
+}
+
+input::placeholder {
+  transition: opacity .3s;
+}
+
+input:hover::placeholder,
+input:focus::placeholder {
+  opacity: 0;
+}
+
+body {
+  margin: 0;
+  margin-top: 200px;
+  padding: 0 25px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  background-color: var(--grey);
+  color: var(--white);
+  font-family: sans-serif;
+}
+
+.page-header {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px 0;
+  background-color: #191919;
+}
+
+#search-form input {
+  text-align: center;
+  width: 100%;
+}
+
+.tasks {
+  width: 80%;
+  max-width: 1040px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+}
+
+.tasks li {
+  margin: 25px 0;
+}
+
+.tasks li::nth-child(:first) {
+  margin-bottom: 100px;
+}
+
+#create-task-form {
+  display: grid;
+  grid-gap: 25px;
+  grid-template-columns: 1fr 54px 35px 100px;
+  grid-template-rows: 1fr 1fr;
+  width: 100%;
+  background-color: white;
+  border-radius: 3px;
+  padding: 5px;
+  overflow: hidden;
+}
+
+#create-task-form input[type='text'] {
+  padding-left: 25px;
+  flex-grow: 4;
+}
+
+#create-task-form input[type='date'],
+#create-task-form input[type='time'] {
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+}
+
+#create-task-form input[type='submit'] {
+  width: 100px;
+  transition: color .2s, background .3s;
+  font-weight: bold;
+  font-size: 40px;
+  padding: 0 15px;
+  text-aligh: center;
+  cursor: pointer;
+  margin-right: 0;
+  background: white;
+}
+
+#create-task-form input[type='submit']:hover {
+  background-color: var(--green);
+  color: var(--white);
+}
+
+#create-task-form textarea {
+  border: none;
+  outline: none;
+  font-size: 20px;
+  grid-column: 1 / -1;
+  resize: none;
+  padding: 0 30px;
+}
+
+.task {
+  position: relative;
+  display: grid;
+  grid-row-gap: 20px;
+  grid-template-columns: 1fr 5fr 2fr 3fr 1fr;
+  grid-template-rows: 1fr;
+  background-color: #191919;
+  padding: 20px 60px 20px 25px;
+  border-radius: 3px;
+  text-align: center;
+  overflow: hidden;
+  line-height: 150%;
+}
+
+.task>* {
+  margin: 0 10px;
+}
+
+.task .check {
+  width: 25px;
+  height: 25px;
+}
+
+.task .title {
+  flex-grow: 3;
+  text-align: left;
+}
+
+.task .status {
+  font-weight: bold;
+}
+
+.task .status.today {
+  color: green;
+}
+
+.task .status.tomorrow {
+  color: orange;
+}
+
+.task .status.expired {
+  color: red;
+}
+
+.task .subtasks {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding-left: 25px;
+}
+
+.task .subtasks li {
+  margin: 5px 0;
+}
+
+.task .subtasks li label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.task .delete {
+  position: absolute;
+  right: 0;
+  margin: 0;
+  height: 100%;
+  width: 50px;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: var(--white);
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.task .delete:hover {
+  background-color: #171717;
+}
