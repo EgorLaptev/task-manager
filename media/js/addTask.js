@@ -1,10 +1,24 @@
 'use strict';
 
-// Add task
-const form  = document.querySelector('#create-task-form'),
-      tasks = document.querySelector('#tasks');
+const form  = document.querySelector('#create-task-form');
 
 form.addEventListener('submit', evt => {
+
+  evt.preventDefault();
+
+  let title = form.querySelector('#name').value,
+      date  = form.querySelector('#date').value,
+      time  = form.querySelector('#time').value,
+      subtasks = form.querySelector('#subtasks').value.trim().split('\n')
+
+  Task.add(title, date, time, subtasks);
+
+  showTask(Task.list[Task.list.length-1]);
+
+});
+
+/*
+  form.addEventListener('submit', evt => {
 
   evt.preventDefault();
 
@@ -59,18 +73,19 @@ form.addEventListener('submit', evt => {
   tasks.append(li);
 
 
-});
+  });
 
-// Time limit
-let dateInput = form.querySelector('#date'),
-    timeInput = form.querySelector('#time');
+  // Time limit
+  let dateInput = form.querySelector('#date'),
+      timeInput = form.querySelector('#time');
 
-dateInput.addEventListener('input', evt => {
-  if((Math.ceil((Date.parse(new Date(dateInput.value)) - Date.parse(new Date())) / 1000 / 60 / 60 / 24)) != 0)
-  {
-    timeInput.min = '';
-  } else {
-    timeInput.min = `${(new Date()).getHours()}:${(new Date()).getMinutes()}`;
-  }
+  dateInput.addEventListener('input', evt => {
+    if((Math.ceil((Date.parse(new Date(dateInput.value)) - Date.parse(new Date())) / 1000 / 60 / 60 / 24)) != 0)
+    {
+      timeInput.min = '';
+    } else {
+      timeInput.min = `${(new Date()).getHours()}:${(new Date()).getMinutes()}`;
+    }
 
-});
+  });
+*/

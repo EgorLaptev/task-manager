@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="media/css/style.css">
+  <title>Tasks list</title>
+</head>
+
+<body>
+
+  <input type="search" id="search" placeholder="Search task">
+
+  <ul class="tasks" id="tasks">
+    <li>
+      <form id="create-task-form">
+        <input type="text" id="name" placeholder="Name" >
+        <input type="date" id="date" min="">
+        <input type="time" id="time" min="">
+        <input type="submit" id="create-task" value="+">
+        <textarea id="subtasks" placeholder="Subtasks"></textarea>
+      </form>
+    </li>
+    
+  </ul>
+
+  <script src="media/js/Task.js" charset="utf-8"></script>
+  <script src="media/js/showTask.js" charset="utf-8"></script>
+  <script src="media/js/addTask.js" charset="utf-8"></script>
+
+</body>
+
+</html>
