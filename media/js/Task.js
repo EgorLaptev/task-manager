@@ -25,7 +25,7 @@ class Task {
 	static remove(task) 
 	{
 		let index = this.list.indexOf(task);
-		if(!~~index) this.list.splice(index, 1);
+		if(index != -1) this.list.splice(index, 1);
 
 		return task;
 	}
