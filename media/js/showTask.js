@@ -32,7 +32,7 @@ function showTask(task, id) {
 
     // Filling task element
     taskEl.innerHTML = `
-    <label class="task">
+    <label class="task" data-id='${id}'>
         <input type="checkbox" class="check" data-id='${id}' ${disabled}>
         <h3 class="title">` + task.title + `</h3>
         <span class="status today">` + status + `</span>
