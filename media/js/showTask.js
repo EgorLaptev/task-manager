@@ -38,6 +38,7 @@ function showTask(task, id) {
         <span class="status today">` + status + `</span>
         <time class="date">` + task.date + `</time>
         <time class="time">` + task.time + `</time>
+        <button class="edit" data-id='${id}'>E</button>
         <button class="delete" data-id='${id}'>X</button>
         <ul class="subtasks">` + subtasks + `
         </ul>
