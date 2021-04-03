@@ -19,7 +19,7 @@
     function deleteTask() {
 
         let taskId = event.target.dataset.id;
-
+        console.log(1);
         Task.remove(Task.list[taskId]);
         event.target.parentElement.parentElement.remove();
 

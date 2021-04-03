@@ -32,9 +32,18 @@
     function completeTask(evt) {
 
         let taskId = evt.target.dataset.id;
+        let task = evt.target.parentElement.parentElement;
 
         Task.complete(Task.list[taskId]);
-        evt.target.parentElement.remove();
+
+        task.firstElementChild.style.gridTemplateColumns = '5fr 2fr 3fr 1fr';
+        task.style.display = 'none';
+
+        task.querySelectorAll("input[type='checkbox']")
+            .forEach(checkbox => checkbox.remove());
+
+        task.querySelector("button.edit").remove();
+        task.querySelector("button.delete").style.height = '100%';
 
     }
 
