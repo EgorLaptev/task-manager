@@ -11,7 +11,7 @@ search.addEventListener('input', evt => {
 
     Task.list.forEach((task, id) => {
        for(let prop in task) {
-           if((new RegExp(search.value, 'i')).test(task[prop])) {
+           if((new RegExp(search.value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), 'i')).test(task[prop])) {
                let isSearchedTask = taskList.querySelector(`.task[data-id='${id}']`);
                if(isSearchedTask) isSearchedTask.parentElement.style.display = 'block';
                break;

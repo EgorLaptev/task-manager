@@ -1,6 +1,5 @@
 'use strict';
 
-
 class Task {
 
 	static list = [];
@@ -8,7 +7,7 @@ class Task {
 	static add(title, date, time, subtasks=[])
 	{
 
-		let task = {};
+		const task = {};
 
 		task.title 		= title;
 		task.date  		= date;
@@ -24,7 +23,7 @@ class Task {
 
 	static remove(task) 
 	{
-		let index = this.list.indexOf(task);
+		const index = this.list.indexOf(task);
 		if(index != -1) this.list.splice(index, 1);
 
 		return task;
@@ -33,21 +32,30 @@ class Task {
 	static save()
 	{
 		localStorage.setItem('tasksList', JSON.stringify(this.list));
-		console.log(JSON.parse(localStorage.getItem('tasksList')));
+	}
+
+	static pull() {
+
+		const tasksList = localStorage.getItem('tasksList');
+
+		if(tasksList) {
+			Task.list = JSON.parse(localStorage.getItem('tasksList'));
+			Task.list.forEach((task, id) => {
+				showTask(task, id);
+			});
+		}
+
 	}
 
 	static complete(task)
 	{
-		let index = this.list.indexOf(task);
+		const index = this.list.indexOf(task);
 		this.list[index]._complete = true;
 
 		return task;
 	}
 
-	static edit(task, prop, value)
-	{
-		let index = this.list.indexOf(task);
-		this.list[index][prop] = value;
-	}
 
 }
+
+Task.pull();

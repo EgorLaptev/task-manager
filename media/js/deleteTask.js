@@ -3,14 +3,18 @@
 {
     const taskList = document.querySelector('#tasks');
 
-    const observer = new MutationObserver(mutation => {
+    const observer = new MutationObserver(mutations => {
 
-        if(mutation[0].removedNodes.length) return 0;
+        mutations.forEach(mutation => {
 
-        let newTask = mutation[0].addedNodes[0];
-        let delButton = newTask.querySelector('button.delete');
+            if(mutation.removedNodes.length) return 0;
 
-        delButton.addEventListener('click', deleteTask);
+            let newTask = mutation.addedNodes[0];
+            let delButton = newTask.querySelector('button.delete');
+
+            delButton.addEventListener('click', deleteTask);
+
+        });
 
     });
 
