@@ -1,0 +1,60 @@
+#create-task-form {
+  display: grid;
+  grid-gap: 25px;
+  grid-template-columns: 1fr 54px 35px 100px;
+  grid-template-rows: 1fr 1fr;
+  width: 100%;
+  background-color: white;
+  border-radius: 3px;
+  padding: 0;
+  overflow: hidden;
+}
+
+#create-task-form input[type='text'] {
+  padding-left: 25px;
+  flex-grow: 4;
+}
+
+#create-task-form input[type='date'],
+#create-task-form input[type='time'] {
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+}
+
+#create-task-form input[type='submit'] {
+  width: 100px;
+  transition: color .2s, background .3s;
+  font-weight: bold;
+  font-size: 40px;
+  padding: 0 15px;
+  text-align: center;
+  cursor: pointer;
+  margin-right: 0;
+  background: white;
+}
+
+#create-task-form input[type='submit']:hover {
+  background-color: var(--blue);
+  color: var(--white);
+}
+
+#create-task-form textarea {
+  border: none;
+  outline: none;
+  font-size: 20px;
+  grid-column: 1 / -1;
+  resize: none;
+  padding: 0 30px;
+}
+
+.active-tasks,
+.completed-tasks {
+  margin-top: 10px;
+}
+
+.active-tasks.active,
+.completed-tasks.active {
+  background-color: var(--blue);
+  color: var(--white);
+}

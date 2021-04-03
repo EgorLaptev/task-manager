@@ -1,0 +1,16 @@
+.tasks {
+  width: 80%;
+  max-width: 1040px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+}
+
+.tasks li {
+  margin: 25px 0;
+}
+
+.tasks li::nth-child(:first) {
+  margin-bottom: 100px;
+}
